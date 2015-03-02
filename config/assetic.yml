@@ -1,0 +1,10 @@
+debug: true
+autoDump: true
+dumper:
+    directories:
+        # Examples :
+        # vendor/twbs/bootstrap/fonts: fonts
+        # vendor/fortawesome/font-awesome/fonts: fonts
+    files:
+        # Examples :
+        # vendor/select2/select2/select2.css: css

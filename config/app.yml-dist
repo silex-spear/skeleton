@@ -1,0 +1,2 @@
+debug: <%app.debug%>
+var.path: <%var.path%>

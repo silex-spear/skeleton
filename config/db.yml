@@ -1,0 +1,7 @@
+default:
+    database: silex_spear
+    host: localhost
+    user: root
+    password: admin
+    port: 3306
+    charset: utf8

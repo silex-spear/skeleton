@@ -1,0 +1,31 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% filter striptags %}{% block title %}{% endblock %}{% endfilter %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% stylesheets
+            '../assets/compiled/main.css'
+         %}
+        <link href="/{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+
+        {% block specificStylesheets %}{% endblock specificStylesheets %}
+    </head>
+    <body>
+
+    {% block content %}{% endblock %}
+
+    {% javascripts
+        'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'
+        '../vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+        '../assets/js/main.js'
+    %}
+    <script type="text/javascript" src="/{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    {% block specificsJavascripts %}{% endblock specificsJavascripts %}
+    </body>
+</html>

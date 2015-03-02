@@ -1,0 +1,17 @@
+{% extends 'common/layout.html.twig' %}
+
+{% block content %}
+{% include 'common/navbar.html.twig' %}
+{% include 'common/alerts.html.twig' %}
+<div class="container-fluid">
+    <div class="row">
+        <div id="main-content">
+            <div class="container-fluid">
+                <h1>{% block title %}{% endblock %}</h1>
+                {% block body %}{% endblock body %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
