@@ -1,4 +1,6 @@
 {
+    "name": "silex-spear-skeleton",
+    "type": "project",
     "require-dev" : {
         "phpunit/phpunit" : "~3.7",
         "composer/composer" : "1.0.0-alpha9"
