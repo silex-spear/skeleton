@@ -15,12 +15,14 @@ class Install
 
     private
         $io,
+        $git,
         $rootPath;
 
-    public function __construct(IOInterface $io)
+    public function __construct(IOInterface $io, GitWrapper $git)
     {
         $this->io = $io;
         $this->rootPath = __DIR__ . '/../';
+        $this->git = $git;
     }
 
     public function process()
@@ -31,6 +33,7 @@ class Install
         $namespace = sprintf('%s\%s', $vendorName, $appName);
 
         $this->confirmInitialization($namespace);
+        $this->initializeGitRepository();
 
 //         $this->replaceNamespaces($namespace);
 
@@ -39,6 +42,13 @@ class Install
         $this->replaceComposerJsonProjectName($vendorName, $appName);
 
         $this->output('Done.');
+    }
+    
+    private function initializeGitRepository()
+    {
+        $this->output('Initializing empty git repository');
+
+        $this->git->init($this->rootPath);
     }
     
     private function replaceComposerJsonProjectName($vendorName, $appName)
