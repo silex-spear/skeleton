@@ -1,7 +1,6 @@
 <?php
 
-$loader = require_once __DIR__ . '/../vendor/autoload.php';
-$loader->addPsr4('Spear\\Silex\\Application\\', __DIR__ . '/../../spear-application/src/');
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Puzzle\Configuration\Yaml;
 use Gaufrette\Filesystem;
