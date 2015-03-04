@@ -3,12 +3,15 @@
 namespace Spear;
 
 use Composer\IO\IOInterface;
+use GitWrapper\GitWrapper;
 
 class Install
 {
     const
-        NAMESPACE_TO_REPLACE = 'Spear\Skeleton',
-        COMPOSER_NAMESPACE_TO_REPLACE = 'Spear\\\\Skeleton';
+        COMPOSER_FILENAME = 'composer.json',
+        COMPOSER_PROJECT_NAME_TO_REPLACE = 'silex-spear-skeleton',
+        COMPOSER_NAMESPACE_TO_REPLACE = 'Spear\\\\Skeleton',
+        NAMESPACE_TO_REPLACE = 'Spear\Skeleton';
 
     private
         $io,
@@ -30,16 +33,29 @@ class Install
         $this->confirmInitialization($namespace);
 
 //         $this->replaceNamespaces($namespace);
-        $this->replaceNamespacePsr4Declaration($namespace);
+
+        $this->output('    <info>composer.json</info>');
+        $this->replaceComposerJsonNamespacePsr4Declaration($namespace);
+        $this->replaceComposerJsonProjectName($vendorName, $appName);
 
         $this->output('Done.');
     }
-
-    private function replaceNamespacePsr4Declaration($namespace)
+    
+    private function replaceComposerJsonProjectName($vendorName, $appName)
     {
-        $this->output('    <info>composer.json</info>');
+        $inlineProjectName = implode('-', array(
+            $vendorName,
+            $appName
+        ));
 
-        $composerJsonPath = $this->rootPath . 'composer.json';
+        $composerJsonPath = $this->rootPath . self::COMPOSER_FILENAME;
+
+        $this->replaceStringInFile(self::COMPOSER_PROJECT_NAME_TO_REPLACE, $inlineProjectName, $composerJsonPath);
+    }
+
+    private function replaceComposerJsonNamespacePsr4Declaration($namespace)
+    {
+        $composerJsonPath = $this->rootPath . self::COMPOSER_FILENAME;
 
         $this->replaceStringInFile(self::COMPOSER_NAMESPACE_TO_REPLACE, str_replace('\\', '\\\\', $namespace), $composerJsonPath);
     }
