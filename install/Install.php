@@ -9,7 +9,7 @@ class Install
 {
     const
         COMPOSER_FILENAME = 'composer.json',
-        COMPOSER_PROJECT_NAME_TO_REPLACE = 'silex-spear-skeleton',
+        COMPOSER_PROJECT_NAME_TO_REPLACE = 'silex-spear/skeleton',
         COMPOSER_NAMESPACE_TO_REPLACE = 'Spear\\\\Skeleton',
         NAMESPACE_TO_REPLACE = 'Spear\Skeleton';
 
