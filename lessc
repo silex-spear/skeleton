@@ -1,3 +1,7 @@
 #!/bin/bash
 
+echo "Application ..."
 vendor/bin/lessc assets/less/build.less assets/compiled/main.css
+
+echo "Bootstrap ..."
+vendor/bin/lessc vendor/twbs/bootstrap/less/bootstrap.less assets/compiled/bootstrap.css
