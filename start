@@ -6,10 +6,8 @@ vendor/bin/karma hydrate
 
 echo "2 - Compile assets"
 echo "=================="
-chmod u+x lessc
 ./lessc
 
 echo "3 - Package assets"
 echo "=================="
-chmod u+x console
 ./console assetic:dump
