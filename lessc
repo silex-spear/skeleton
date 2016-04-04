@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "Application ..."
 vendor/bin/lessc assets/less/build.less assets/compiled/main.css
