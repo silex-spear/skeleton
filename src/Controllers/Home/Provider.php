@@ -11,7 +11,9 @@ class Provider implements ControllerProviderInterface
     {
         $app['controller.home'] = function() use($app) {
             $controller = new Controller($app['twig']);
-            $controller->setRequest($app['request']);
+            $controller
+                ->setRequest($app['request'])
+                ->setTwig($app['twig']);
 
             return $controller;
         };
