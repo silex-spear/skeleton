@@ -10,7 +10,7 @@ class Provider implements ControllerProviderInterface
     public function connect(Application $app)
     {
         $app['controller.home'] = function() use($app) {
-            $controller = new Controller($app['twig']);
+            $controller = new Controller();
             $controller
                 ->setRequest($app['request'])
                 ->setTwig($app['twig']);
